@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Pineault_Antoine_Devoir3.Products>
+    @{
+        Layout = null;
+    }
+    <style type="text/css">
+        table {
+            background-color: lightblue;
+            border: 2px red solid;
+        }
+    </style>
+
+    @using (Html.BeginForm("Login", "Products", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>Login: </td>
+                <td><input type="text" id="login" name="login" /></td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" id="passwd" name="passwd" /></td>
+            </tr>
+            <tr><td><input id="submit" type="submit" value="Submit" /></td></tr>
+
+
+        </table>
+    }
