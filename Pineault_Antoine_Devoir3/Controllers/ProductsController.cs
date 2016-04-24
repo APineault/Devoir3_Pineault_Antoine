@@ -95,6 +95,28 @@ namespace Pineault_Antoine_Devoir3.Controllers
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
+            string imgpath;
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+                if ((file != null) && (file.ContentLength > 0))
+                {
+                    var filename = Path.GetFileName(file.FileName);
+                    var fileextension = Path.GetExtension(file.FileName);
+                   
+                        imgpath = Path.Combine(Server.MapPath("~/App_Data/" + file.FileName));
+                        file.SaveAs(imgpath);
+                        
+                 
+
+
+                }
+
+            }
+            else
+            {
+                ViewBag.errorType = "Aucun fichier selectionner";
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
